@@ -2,7 +2,7 @@
 
 ### How to use
 
-"""shell
+```shell
 decimal-to-binary$ chmod 700 ./do
 decimal-to-binary$ ./do
 Enter the decimal point for the decimal number.
@@ -13,4 +13,4 @@ IEEE754 floating point (single precision)
 sign     : [1]
 exponent : [1, 0, 0, 0, 0, 1, 0, 1]
 fraction : [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-"""
+```
