@@ -1,17 +1,14 @@
-import sys
-
-
 decimal = str(
     input(
         """Enter the decimal point for the decimal number.
-※ Be sure to include the positive and negative signs.
-ex) -118.625 or +118.625
+※Be sure to include the positive and negative signs.
+ex) -118.625 or 118.625
 => """
     )
 )
 
 
-def SignPart(sign: str) -> int:
+def DeterminingTheSign(sign: str) -> int:
     if sign == "-":
         return 1
     else:
@@ -30,15 +27,19 @@ def IntegerToBinary(div: int) -> list:
     return binary
 
 
-def DecimalToBinary(decimal: float) -> list:
+def DecimalToBinary(dec: float) -> list:
     binary = []
 
-    while decimal != 1.0:
-        decimal = decimal * 2
-        if decimal > 1.0:
+    if dec == 0:
+        binary.append(0)
+        return binary
+
+    while dec != 1.0:
+        dec = dec * 2
+        if dec > 1.0:
             binary.append(1)
-            decimal -= 1.0
-        elif decimal == 1.0:
+            dec -= 1.0
+        elif dec == 1.0:
             binary.append(1)
             break
         else:
@@ -48,31 +49,31 @@ def DecimalToBinary(decimal: float) -> list:
 
 
 def SinglePrecision():
+    sign_part = [DeterminingTheSign(decimal[0])]
+
     point_num = int(decimal.find("."))
     decimal_number = int(decimal[point_num + 1 :])
     div = int(decimal[1:point_num])
     dec = decimal_number / (10 ** len(str(decimal_number)))
 
-    sign = [SignPart(decimal[0])]
+    exponent_add_bias = (len(IntegerToBinary(div)) - 1) + 127
+    exponent_part = IntegerToBinary(exponent_add_bias)
 
-    exponent = (len(IntegerToBinary(div)) - 1) + 127
-    exponent_add_bias = IntegerToBinary(exponent)
-
-    fraction = list(
+    fraction_part = list(
         IntegerToBinary(div)[1:]
         + DecimalToBinary(dec)
         + [0] * (23 - int(len(IntegerToBinary(div)[1:] + DecimalToBinary(dec))))
     )
 
-    if len(exponent_add_bias) > 8:
+    if len(exponent_part) > 8:
         print("Cannot be expressed in 32 bits.")
-    elif len(fraction) > 23:
+    elif len(fraction_part) > 23:
         print("Cannot be expressed in 32 bits.")
     else:
         print("IEEE754 floating point (single precision)")
-        print("sign     : {}".format(sign))
-        print("exponent : {}".format(exponent_add_bias))
-        print("fraction : {}".format(fraction))
+        print("sign     : {}".format(sign_part))
+        print("exponent : {}".format(exponent_part))
+        print("fraction : {}".format(fraction_part))
 
 
 if __name__ == "__main__":

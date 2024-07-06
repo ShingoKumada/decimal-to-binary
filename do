@@ -1,3 +1,3 @@
-#usr/bin/env bash
+#/usr/bin/env bash
 
-python3 ./float.py
+python3 decimal_to_binary.py
