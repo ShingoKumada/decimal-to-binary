@@ -70,10 +70,14 @@ def SinglePrecision():
     elif len(fraction_part) > 23:
         print("Cannot be expressed in 32 bits.")
     else:
-        print("IEEE754 floating point (single precision)")
-        print("sign     : {}".format(sign_part))
-        print("exponent : {}".format(exponent_part))
-        print("fraction : {}".format(fraction_part))
+        print(
+            """ IEEE754 floating point (single precision)
+sign     : {}
+exponent : {}
+fraction : {}""".format(
+                sign_part, exponent_part, fraction_part
+            )
+        )
 
 
 if __name__ == "__main__":
