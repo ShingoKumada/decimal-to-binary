@@ -1,7 +1,8 @@
 # decimal-to-binary
 
-### How to use
+## How to use
 
+### to-floating-point.py
 ```shell
 
 decimal-to-binary$ ./do
