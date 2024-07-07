@@ -1,3 +1,3 @@
 #/usr/bin/env bash
 
-python ./to-floating-point.py
+python ./to_floating_point.py
