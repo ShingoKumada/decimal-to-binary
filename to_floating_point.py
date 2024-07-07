@@ -1,21 +1,31 @@
 decimal = str(
     input(
         """Enter the decimal point for the decimal number.
-※Be sure to include the positive and negative signs.
-ex) -118.625 or 118.625
+※ Be sure to include the positive and negative signs.
+ex) -118.625 or +118.625
+=> """
+    )
+)
+
+if decimal[0] != '-' and decimal[0] != '+':
+    decimal = str(
+    input(
+        """No sign.
+※ Be sure to include the positive and negative signs.
+ex) -118.625 or +118.625
 => """
     )
 )
 
 
-def DeterminingTheSign(sign: str) -> int:
+def determining_the_sign(sign: str) -> int:
     if sign == "-":
         return 1
     else:
         return 0
 
 
-def IntegerToBinary(div: int) -> list:
+def integer_to_binary(div: int) -> list:
     binary = []
 
     while div != 0:
@@ -27,7 +37,7 @@ def IntegerToBinary(div: int) -> list:
     return binary
 
 
-def DecimalToBinary(dec: float) -> list:
+def decimal_to_binary(dec: float) -> list:
     binary = []
 
     if dec == 0:
@@ -48,21 +58,21 @@ def DecimalToBinary(dec: float) -> list:
     return binary
 
 
-def SinglePrecision():
-    sign_part = [DeterminingTheSign(decimal[0])]
+def single_precision():
+    sign_part = [determining_the_sign(decimal[0])]
 
     point_num = int(decimal.find("."))
     decimal_number = int(decimal[point_num + 1 :])
     div = int(decimal[1:point_num])
     dec = decimal_number / (10 ** len(str(decimal_number)))
 
-    exponent_add_bias = (len(IntegerToBinary(div)) - 1) + 127
-    exponent_part = IntegerToBinary(exponent_add_bias)
+    exponent_add_bias = (len(integer_to_binary(div)) - 1) + 127
+    exponent_part = integer_to_binary(exponent_add_bias)
 
     fraction_part = list(
-        IntegerToBinary(div)[1:]
-        + DecimalToBinary(dec)
-        + [0] * (23 - int(len(IntegerToBinary(div)[1:] + DecimalToBinary(dec))))
+        integer_to_binary(div)[1:]
+        + decimal_to_binary(dec)
+        + [0] * (23 - int(len(integer_to_binary(div)[1:] + decimal_to_binary(dec))))
     )
 
     if len(exponent_part) > 8:
@@ -81,4 +91,4 @@ fraction : {}""".format(
 
 
 if __name__ == "__main__":
-    SinglePrecision()
+    single_precision()
