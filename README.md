@@ -4,8 +4,8 @@
 
 ### to-floating-point.py
 ```shell
-$ git clone https://github.com/shingokumada/decimal-to-binary.git
-$ cd decimal-to-binary
+$ git clone https://github.com/shingokumada/cs.git
+$ cd cs
 decimal-to-binary$ ./do
 Enter the decimal point for the decimal number.
 ※ Be sure to include the positive and negative signs.
