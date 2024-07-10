@@ -6,7 +6,7 @@
 ```shell
 $ git clone https://github.com/shingokumada/cs.git
 $ cd cs
-decimal-to-binary$ ./do
+$ decimal-to-binary$ ./do
 Enter the decimal point for the decimal number.
 ※ Be sure to include the positive and negative signs.
 ex) -118.625 or +118.625
@@ -16,7 +16,7 @@ sign     : [1]
 exponent : [1, 0, 0, 0, 0, 1, 0, 1]
 fraction : [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ================================================================================
-decimal-to-binary$ ./do
+$ decimal-to-binary$ ./do
 Enter the decimal point for the decimal number.
 ※ Be sure to include the positive and negative signs.
 ex) -118.625 or +118.625
