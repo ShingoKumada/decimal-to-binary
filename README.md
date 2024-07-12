@@ -1,4 +1,6 @@
-# decimal-to-binary
+# **[cs](https://github.com/shingokumada/cs)**
+
+**This repository is for learning computer science.**
 
 ## How to use
 
