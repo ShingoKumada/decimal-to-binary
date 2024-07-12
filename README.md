@@ -1,4 +1,4 @@
-# **[cs](https://github.com/shingokumada/cs)**
+# **cs**
 
 **This repository is for learning computer science.**
 
